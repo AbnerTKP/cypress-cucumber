@@ -81,7 +81,7 @@ Scenario: Usuário adiciona um produto ao carrinho
 
 Após isso é de extrema importância que a pasta e o arquivo` .js ` estejam do mesmo nome que o arquivo `.feature`
 
-Arquivo Step Definition (e2e/step_definitions/add_to_cart/add_to_cart.js): (backticks) import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+Arquivo Step Definition (e2e/step_definitions/add_to_cart/add_to_cart.js): ` import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';`
 
      Given('I open the e-commerce site', () => { 
        cy.visit('https://example-ecommerce.com'); 
