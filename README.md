@@ -4,10 +4,19 @@ Este projeto utiliza o Cypress para testes end-to-end com suporte ao Cucumber, p
 # 🚀 Pré-requisitos
 Node.js e npm - Certifique-se de ter o Node.js e o npm instalados: ` node -v npm -v `
 
-Instalação do Cypress e Cucumber:
+# 🔧 Configuração do projeto atual
+
+Para rodar o projeto atual é necessário
+* Instalação do Node.js
+* Instalação do NPM
+* Rodar `npx cypress open` (Caso queira via interface)
+* Rodar `npx cypress run` (formato headless)
+
+Instalação do projeto com Cypress e Cucumber
 
 O projeto requer Cypress e cypress-cucumber-preprocessor para rodar testes com Cucumber.
-# 🔧 Configuração do Projeto
+
+# 📝 Aprenda como configurar um novo projeto 🔧
 Inicie o Projeto: ` mkdir nome-do-projeto cd nome-do-projeto npm init -y ` Este comando inicializa um novo projeto e cria o arquivo package.json.
 
 Instale as Dependências: ` npm install cypress cypress-cucumber-preprocessor prettier `
@@ -74,10 +83,23 @@ Após isso é de extrema importância que a pasta e o arquivo` .js ` estejam do 
 
 Arquivo Step Definition (e2e/step_definitions/add_to_cart/add_to_cart.js): (backticks) import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
-`Given('I open the e-commerce site', () => { cy.visit('https://example-ecommerce.com'); });`
-
-`When('I search for {string}', (product) => { cy.get('input[placeholder="Search"]').type(product); cy.get('button[type="submit"]').click(); });`
-
-`And('I add the first result to the cart', () => { cy.get('.product-list').first().contains('Add to cart').click(); });`
-
-`Then('I see the confirmation message', () => { cy.contains('Product added to cart!').should('be.visible'); }); (backticks)`
+     Given('I open the e-commerce site', () => { 
+       cy.visit('https://example-ecommerce.com'); 
+     });
+     
+     When('I search for {string}', (product) => { 
+       cy.get('input[placeholder="Search"]').type(product); 
+       cy.get('button[type="submit"]').click(); 
+     });
+       
+     And('I add the first result to the cart', () => { 
+       cy.get('.product-list')
+        .first()
+        .contains('Add to cart')
+        .click(); 
+     });
+      
+     Then('I see the confirmation message', () => { 
+       cy.contains('Product added to cart!')
+        .should('be.visible'); 
+     }); 
